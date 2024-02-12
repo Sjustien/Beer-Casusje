@@ -30,7 +30,7 @@
         text-decoration: none;
         border-radius: 3px;
         margin-top: 10px;
-        margin-right: 5px; /* Adjust spacing between elements */
+        margin-right: 5px;
     }
 
     .beer-tile a:hover {
@@ -38,7 +38,7 @@
     }
 
     .beer-tile form {
-        display: inline-block; /* Display the form inline */
+        display: inline-block;
     }
 
     .beer-tile button {
@@ -51,19 +51,23 @@
 @section('content')
 
     <div class="beer-container">
+        @php $counter = 0; @endphp
         @foreach ($bier as $biertje)
-            <div class="beer-tile">
-                <h3>{{$biertje->name}}</h3>
-                <p><strong>Brouwery:</strong> {{$biertje->brewer}}</p>
-                <p><strong>Type:</strong> {{$biertje->type}}</p>
-                <p><strong>Gist:</strong> {{$biertje->yeast}}</p>
-                <p><strong>Alcohol Percentage:</strong> {{$biertje->perc}}</p>
-                <p><strong>Aankoopprijs:</strong> {{$biertje->purchase_price}}</p>
-                <p><strong>Likes:</strong> {{$biertje->like_count}}</p>
-                <a href="{{route("bier.show", $biertje->id)}}">Show</a>
-                <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👍</button></form>
-                <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👎</button></form>
-            </div>
+            @if ($counter < 25)
+                <div class="beer-tile">
+                    <h3>{{$biertje->name}}</h3>
+                    <p><strong>Brouwery:</strong> {{$biertje->brewer}}</p>
+                    <p><strong>Type:</strong> {{$biertje->type}}</p>
+                    <p><strong>Gist:</strong> {{$biertje->yeast}}</p>
+                    <p><strong>Alcohol Percentage:</strong> {{$biertje->perc}}</p>
+                    <p><strong>Aankoopprijs:</strong> {{$biertje->purchase_price}}</p>
+                    <p><strong>Likes:</strong> {{$biertje->like_count}}</p>
+                    <a href="{{route("bier.show", $biertje->id)}}">Show</a>
+                    <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👍</button></form>
+                    <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👎</button></form>
+                </div>
+                @php $counter++; @endphp
+            @endif
         @endforeach
     </div>
 @endsection
