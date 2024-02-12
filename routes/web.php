@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [BierController::class, 'index'])->name('bier.index');
+Route::get('/bier/{bier}', [BierController::class, 'show'])->name('bier.show');

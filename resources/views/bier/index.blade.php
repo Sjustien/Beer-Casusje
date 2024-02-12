@@ -30,6 +30,9 @@
                 <td>
                     {{$biertje->like_count}}
                 </td>
+                <td>
+                    <a href="{{route("bier.show", $biertje->id)}}">Show</a>
+                </td>
             </tr>
         @endforeach
     </table>
