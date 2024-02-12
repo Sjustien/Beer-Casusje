@@ -13,7 +13,22 @@
                     {{$biertje->name}}
                 </td>
                 <td>
-                    
+                    {{$biertje->brewer}}
+                </td>
+                <td>
+                    {{$biertje->type}}
+                </td>
+                <td>
+                    {{$biertje->yeast}}
+                </td>
+                <td>
+                    {{$biertje->perc}}
+                </td>
+                <td>
+                    {{$biertje->purchase_price}}
+                </td>
+                <td>
+                    {{$biertje->like_count}}
                 </td>
             </tr>
         @endforeach
