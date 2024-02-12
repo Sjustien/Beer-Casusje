@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class BierController extends Controller
 {
     public function index(){
-        $bier = Bier::all();
+        $bier = Bier::paginate(25);
 
         return view('bier/index', compact('bier'));
     
