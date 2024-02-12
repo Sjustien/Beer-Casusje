@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bier;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class BierController extends Controller
@@ -14,10 +15,12 @@ class BierController extends Controller
     
     }
     public function show(Bier $bier){
-
-        return view('bier/show', compact('bier'));
+        $comments = $bier->comments;
+        
+        return view('bier/show', compact('bier','comments'));
     
     }
+    
     
 
 }

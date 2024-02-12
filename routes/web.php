@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\BierController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BierController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BierController::class, 'index'])->name('bier.index');
 Route::get('/bier/{bier}', [BierController::class, 'show'])->name('bier.show');
+
+Route::post('/comments/{bier}', [CommentController::class, 'store'])->name('comments.store');
