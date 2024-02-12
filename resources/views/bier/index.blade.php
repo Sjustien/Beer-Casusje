@@ -51,9 +51,8 @@
 @section('content')
 
     <div class="beer-container">
-        @php $counter = 0; @endphp
         @foreach ($bier as $biertje)
-            @if ($counter < 25)
+
                 <div class="beer-tile">
                     <h3>{{$biertje->name}}</h3>
                     <p><strong>Brouwery:</strong> {{$biertje->brewer}}</p>
@@ -66,8 +65,13 @@
                     <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👍</button></form>
                     <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👎</button></form>
                 </div>
-                @php $counter++; @endphp
-            @endif
+
         @endforeach
+        @if ($bier->currentPage() > 1)
+            <td class='w-3/5 text-left'><a href="{{ $bier->previousPageUrl() }}">Vorige</a></td>
+        @endif
+        @if ($bier->hasMorePages())
+            <td class='w-1/2 text-right'><a href="{{ $bier->nextPageUrl() }}">Volgende</a></td>
+        @endif
     </div>
 @endsection
