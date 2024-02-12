@@ -25,4 +25,18 @@
             </td>
         </tr>
     </table>
+
+    <form action="{{ route('comments.store', $bier->id) }}" method="POST">
+        @csrf
+        <input type="text" name="content" id="content">
+    </form>
+    <table>
+        @foreach ($comments as $comment)
+        <tr>
+            <td>
+                {{$comment->content}}
+            </td>
+        </tr>
+        @endforeach
+    </table>
 @endsection
