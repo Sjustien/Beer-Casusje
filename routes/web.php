@@ -17,5 +17,6 @@ use App\Http\Controllers\CommentController;
 
 Route::get('/', [BierController::class, 'index'])->name('bier.index');
 Route::get('/bier/{bier}', [BierController::class, 'show'])->name('bier.show');
+Route::put('/bier/{bier}', [BierController::class, 'update'])->name('bier.update');
 
 Route::post('/comments/{bier}', [CommentController::class, 'store'])->name('comments.store');
