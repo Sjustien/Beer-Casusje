@@ -23,7 +23,8 @@ class BierController extends Controller
     public function update(Bier $bier)
     {
         $formFields['like_count'] = $bier->like_count + 1;
-
         $bier->update($formFields);
+        
+        return response()->json(['like_count' => $bier->like_count]);
     }
 }
