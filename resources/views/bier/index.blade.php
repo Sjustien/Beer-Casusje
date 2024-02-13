@@ -3,7 +3,6 @@
     
 </style>
 @section('content')
-
     <div class="beer-container">
         @foreach ($bier as $biertje)
             <div class="beer-tile">
@@ -28,5 +27,21 @@
         @if ($bier->hasMorePages())
             <li><a href="{{ $bier->nextPageUrl() }}">Volgende</a></li>
         @endif
-    </ul>
+    </div>
+
+    <script>
+        function likeButton(beerId) {
+            axios
+                .put(`/bier/${beerId}`, {
+                    // Remove the position field
+                })
+                .then(response => {
+                    console.log(beerId);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+        }
+    </script>
 @endsection
