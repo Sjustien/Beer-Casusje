@@ -3,44 +3,7 @@
     body {
         font-family: verdana;
     }
-.beer-details {
-    margin-bottom: 20px;
-}
 
-.comment-form input[type="text"] {
-    width: 300px;
-    padding: 5px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.comment-form button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.comments {
-    margin-top: 20px;
-}
-
-.comments table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.comments table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-}
-
-.comments table td:first-child {
-    width: 80%;
-}
 </style>
 @section('content')
     <div class="beer-details">
