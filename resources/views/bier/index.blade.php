@@ -1,21 +1,27 @@
 @extends('layouts.head')
-<style> 
-    
+<style>
+
 </style>
 @section('content')
+    <div class="w-full flex justify-center pt-10">
+        <input type="text" name="" id="" class="border border-gray-500 w-1/2 h-12 rounded indent-3"
+            placeholder="Zoek Biertjes...">
+    </div>
+
     <div class="beer-container">
         @foreach ($bier as $biertje)
             <div class="beer-tile">
-                <h3>{{$biertje->name}}</h3>
-                <p><strong>Brouwerij:</strong> {{$biertje->brewer}}</p>
-                <p><strong>Type:</strong> {{$biertje->type}}</p>
-                <p><strong>Gist:</strong> {{$biertje->yeast}}</p>
-                <p><strong>Alcohol Percentage:</strong> {{$biertje->perc}}%</p>
-                <p><strong>Aankoopprijs:</strong> €{{$biertje->purchase_price}}</p>
-                <p><strong>Likes:</strong> {{$biertje->like_count}}</p>
-                <a href="{{route("bier.show", $biertje->id)}}">Show</a>
-                <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👍</button></form>
-                <form><button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👎</button></form>
+                <h3>{{ $biertje->name }}</h3>
+                <p><strong>Brouwerij:</strong> {{ $biertje->brewer }}</p>
+                <p><strong>Type:</strong> {{ $biertje->type }}</p>
+                <p><strong>Gist:</strong> {{ $biertje->yeast }}</p>
+                <p><strong>Alcohol Percentage:</strong> {{ $biertje->perc }}%</p>
+                <p><strong>Aankoopprijs:</strong> €{{ $biertje->purchase_price }}</p>
+                <p><strong>Likes:</strong> {{ $biertje->like_count }}</p>
+                <a href="{{ route('bier.show', $biertje->id) }}">Show</a>
+                <button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👍</button>
+                <button style="background-color: #434c5e; border-radius: 100px; width: 36px; height: 35px;">👎</button>
+
             </div>
         @endforeach
     </div>
@@ -27,20 +33,20 @@
         @if ($bier->hasMorePages())
             <li><a href="{{ $bier->nextPageUrl() }}">Volgende</a></li>
         @endif
-    </div>
+        </div>
 
-    <script>
-        function likeButton(beerId) {
-            axios
-                .put(`/bier/${beerId}`, {
-                    // Remove the position field
-                })
-                .then(response => {
-                    console.log(beerId);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
-    </script>
-@endsection
+        <script>
+            function likeButton(beerId) {
+                axios
+                    .put(`/bier/${beerId}`, {
+                        // Remove the position field
+                    })
+                    .then(response => {
+                        console.log(beerId);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        </script>
+    @endsection
