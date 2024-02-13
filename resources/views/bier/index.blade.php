@@ -1,8 +1,17 @@
 @extends('layouts.head')
-<style> 
-    
+<style>
+
 </style>
 @section('content')
+    <div class="w-full flex justify-center pt-10">
+        <form action="{{ route('bier.search') }}" method="GET" class="border border-gray-500 w-1/2 h-12 rounded ">
+            @csrf
+            <input type="text" name="query1" id="query" placeholder="Zoek Biertjes..." class="w-full h-full indent-3">
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+
     <div class="beer-container">
         @foreach ($bier as $biertje)
             <div class="beer-tile" data-beer-id="{{$biertje->id}}">

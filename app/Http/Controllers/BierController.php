@@ -27,4 +27,10 @@ class BierController extends Controller
         
         return response()->json(['like_count' => $bier->like_count]);
     }
+    public function search(Request $request)
+    {
+        $bier = Bier::search($request->query)->get();
+
+        return view('bier/index', compact('bier'));
+    }
 }
