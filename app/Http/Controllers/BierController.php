@@ -26,4 +26,10 @@ class BierController extends Controller
 
         $bier->update($formFields);
     }
+    public function search(Request $request)
+    {
+        $bier = Bier::search($request->query)->get();
+
+        return view('bier/index', compact('bier'));
+    }
 }

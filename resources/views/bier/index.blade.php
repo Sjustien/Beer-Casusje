@@ -4,8 +4,12 @@
 </style>
 @section('content')
     <div class="w-full flex justify-center pt-10">
-        <input type="text" name="" id="" class="border border-gray-500 w-1/2 h-12 rounded indent-3"
-            placeholder="Zoek Biertjes...">
+        <form action="{{ route('bier.search') }}" method="GET" class="border border-gray-500 w-1/2 h-12 rounded ">
+            @csrf
+            <input type="text" name="query1" id="query" placeholder="Zoek Biertjes..." class="w-full h-full indent-3">
+            <button type="submit">Submit</button>
+        </form>
+
     </div>
 
     <div class="beer-container">
